@@ -1,0 +1,23 @@
+---
+- name: Deploy Casino Wallet
+  hosts: localhost
+  become: yes
+  vars:
+    wallet_config:
+      database:
+        host: localhost
+        port: 5432
+        name: casino_wallet_db
+        user: wallet_user
+        password: "{{ lookup('env', 'WALLET_DB_PASSWORD') }}"
+        tags:
+          - casino-wallet
+
+      api:
+        host: 0.0.0.0 
+        port: 8080
+        rate_limit: 100
+        timeout: 30
+        debug: false
+        tags:
+          - casino-wallet

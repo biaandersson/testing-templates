@@ -1,0 +1,73 @@
+---
+# Casino wallet configuration
+wallet_config:
+  # Database settings
+  database:
+    host: localhost
+    port: 5432
+    name: casino_wallet_db
+    user: wallet_user
+    max_connections: 100
+    idle_timeout: 300
+    tags:
+      - casino-wallet
+
+  # API settings
+  api:
+    host: 0.0.0.0
+    port: 8080
+    rate_limit: 100
+    timeout: 30
+    debug: false
+    tags:
+      - casino-wallet
+
+  # Security settings
+  security:
+    session_timeout: 3600
+    max_login_attempts: 5
+    lockout_duration: 900
+    require_2fa: true
+    password_expiry_days: 90
+    tags:
+      - casino-wallet
+
+  # Transaction settings
+  transactions:
+    batch_size: 100
+    retry_attempts: 3
+    retry_delay: 5
+    logging_level: INFO
+    audit_enabled: true
+    tags:
+      - casino-wallet
+
+  # Notification settings
+  notifications:
+    email_enabled: true
+    sms_enabled: false
+    smtp_host: smtp.example.com
+    smtp_port: 587
+    smtp_user: notifications@example.com
+    tags:
+      - casino-wallet
+
+  # Cache settings
+  cache:
+    enabled: true
+    type: redis
+    host: localhost
+    port: 6379
+    ttl: 3600
+    max_size: 1000
+    tags:
+      - casino-wallet
+
+  # Monitoring
+  monitoring:
+    metrics_enabled: true
+    health_check_interval: 60
+    alert_threshold: 90
+    log_retention_days: 30
+    tags:
+      - casino-wallet

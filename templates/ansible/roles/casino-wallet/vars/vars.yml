@@ -1,0 +1,50 @@
+---
+# Casino wallet test data
+wallet_users:
+  - username: test_user1
+    balance: 1000.00
+    currency: USD
+    status: active
+    transactions:
+      - type: deposit
+        amount: 500.00
+        timestamp: "2023-01-01T10:00:00Z"
+      - type: withdrawal 
+        amount: 200.00
+        timestamp: "2023-01-02T15:30:00Z"
+  
+  - username: test_user2
+    balance: 2500.00
+    currency: EUR
+    status: active
+    transactions:
+      - type: deposit
+        amount: 1000.00
+        timestamp: "2023-01-01T11:00:00Z"
+      - type: deposit
+        amount: 1500.00
+        timestamp: "2023-01-03T09:15:00Z"
+
+  - username: test_user3
+    balance: 750.00
+    currency: GBP
+    status: suspended
+    transactions:
+      - type: deposit
+        amount: 1000.00
+        timestamp: "2023-01-01T14:20:00Z"
+      - type: withdrawal
+        amount: 250.00
+        timestamp: "2023-01-04T16:45:00Z"
+
+wallet_settings:
+  min_deposit: 10.00
+  max_deposit: 10000.00
+  min_withdrawal: 20.00
+  max_withdrawal: 5000.00
+  daily_withdrawal_limit: 10000.00
+  supported_currencies:
+    - USD
+    - EUR
+    - GBP
+    - JPY
