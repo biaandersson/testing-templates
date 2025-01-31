@@ -1,0 +1,60 @@
+# Casino Wallet Service Configuration
+
+service:
+  name: casino-wallet
+  version: 1.0.0
+
+endpoints:
+  - name: getBalance
+    method: GET
+    path: /wallet/balance
+    description: Retrieve the current balance of the user's wallet.
+    responses:
+      200:
+        description: Successful response
+        content:
+          application/json:
+            example:
+              balance: 1000.00
+              currency: USD
+
+  - name: deposit
+    method: POST
+    path: /wallet/deposit
+    description: Deposit funds into the user's wallet.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          example:
+            amount: 100.00
+            currency: USD
+    responses:
+      200:
+        description: Deposit successful
+        content:
+          application/json:
+            example:
+              balance: 1100.00
+              currency: USD
+
+  - name: withdraw
+    method: POST
+    path: /wallet/withdraw
+    description: Withdraw funds from the user's wallet.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          example:
+            amount: 50.00
+            currency: USD
+    responses:
+      200:
+        description: Withdrawal successful
+        content:
+          application/json:
+            example:
+              balance: 950.00
+              currency: USD
+# Additional configuration can be added here as needed
