@@ -1,0 +1,26 @@
+---
+- name: Create dummy data for service
+  hosts: localhost
+  tasks:
+    - name: Create test users
+      vars:
+        users:
+          - username: test_user1
+            email: user1@example.com
+            role: admin
+          - username: test_user2 
+            email: user2@example.com
+            role: user
+          - username: test_user3
+            email: user3@example.com
+            role: user
+
+    - name: Create test content
+      vars:
+        content:
+          - title: "Sample Post 1"
+            body: "This is a test post content"
+            author: "test_user1"
+          - title: "Sample Post 2" 
+            body: "Another test post content"
+            author: "test_user2"
